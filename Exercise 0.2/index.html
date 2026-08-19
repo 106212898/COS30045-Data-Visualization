@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WattWise — Appliance Energy Consumption in Australia</title>
+  <meta name="description" content="Placeholder educational content on how much energy Australian household appliances use, with a focus on televisions." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="WattWise power logo">
+          <circle cx="20" cy="20" r="18.5" fill="none" stroke="#FFB020" stroke-width="2"/>
+          <path d="M22 6 L10 22 H18 L16 34 L30 16 H21 Z" fill="#FFB020"/>
+        </svg>
+        <span class="brand-name">WattWise<small>AU Energy Guide</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="televisions.html">Televisions</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-copy">
+          <span class="eyebrow">Australian households · energy data</span>
+          <h1>How much power is your lounge room actually drawing?</h1>
+          <p class="lede">
+            WattWise breaks down where household electricity really goes —
+            from standby draw to the big-screen TV running every night.
+            This site is a student project exploring appliance energy
+            consumption trends across the Australian market, with a closer
+            look at televisions.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="televisions.html">See TV energy data</a>
+            <a class="btn btn-ghost" href="about.html">About this project</a>
+          </div>
+        </div>
+
+        <div class="meter-card">
+          <svg viewBox="0 0 300 190" role="img" aria-label="Illustrative power meter showing 1.8 kilowatt hours per day">
+            <defs>
+              <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#1FB6A6" />
+                <stop offset="55%" stop-color="#FFB020" />
+                <stop offset="100%" stop-color="#E6553A" />
+              </linearGradient>
+            </defs>
+            <path d="M30,160 A120,120 0 0,1 270,160" fill="none" stroke="rgba(244,246,244,0.12)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M30,160 A120,120 0 0,1 270,160" fill="none" stroke="url(#gaugeGradient)" stroke-width="18" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="70"/>
+            <g stroke="rgba(244,246,244,0.4)" stroke-width="2">
+              <line x1="30" y1="160" x2="42" y2="150" />
+              <line x1="150" y1="40" x2="150" y2="54" />
+              <line x1="270" y1="160" x2="258" y2="150" />
+            </g>
+            <line x1="150" y1="160" x2="205" y2="88" stroke="#F4F6F4" stroke-width="4" stroke-linecap="round" />
+            <circle cx="150" cy="160" r="9" fill="#F4F6F4" />
+            <text x="150" y="120" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="26" font-weight="700" fill="#F4F6F4">1.8</text>
+            <text x="150" y="140" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#FFB020">kWh / day</text>
+          </svg>
+          <p class="meter-caption">Illustrative reading — an average lounge-room entertainment setup</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STATS ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Placeholder figures</span>
+          <h2>The Australian market, in numbers</h2>
+          <p>
+            These figures are indicative placeholders for the purposes of
+            this assignment, styled the way a real household energy
+            snapshot might be presented.
+          </p>
+        </div>
+        <div class="stat-strip">
+          <div class="stat-card">
+            <span class="stat-number">289<span class="unit">kWh</span></span>
+            <span class="stat-label">Average quarterly household electricity use</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">$1,891<span class="unit">/yr</span></span>
+            <span class="stat-label">Average annual residential electricity bill</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">24<span class="unit">%</span></span>
+            <span class="stat-label">Share of the bill from entertainment &amp; standby appliances</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTENT ============================ -->
+    <section class="section section-alt">
+      <div class="container two-col">
+        <div>
+          <h2>Where household energy goes</h2>
+          <p>
+            Across Australian homes, heating and cooling typically make up
+            the largest share of electricity use, followed by hot water
+            and refrigeration. Entertainment appliances — televisions,
+            gaming consoles, and sound systems — draw a smaller but
+            steadily growing slice, driven by larger screens and
+            always-on standby modes.
+          </p>
+          <p>
+            Energy Rating labels, introduced under the national Greenhouse
+            and Energy Minimum Standards (GEMS) scheme, give households a
+            standardised way to compare appliances before buying. The
+            more stars on the label, the less energy the appliance is
+            expected to use for the same size and features.
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag amber">Quick tips</span>
+          <h3>Cutting appliance running costs</h3>
+          <p>Switch appliances off at the wall rather than leaving them on standby overnight.</p>
+          <p>Check the Energy Rating label and compare star ratings, not just price, when buying new appliances.</p>
+          <p>Group entertainment devices on a single powerboard so they're easy to switch off together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Frequently asked questions</h2>
+          <p>Placeholder answers covering common questions about household appliance energy use.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-q-1">
+              What is the Energy Rating label?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-q-1">
+              <p>
+                Placeholder text: the Energy Rating label is a star-based
+                system used across Australia and New Zealand to help
+                shoppers compare the energy efficiency of appliances such
+                as televisions, refrigerators, and air conditioners.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-q-2">
+              Does standby power actually add up?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-q-2">
+              <p>
+                Placeholder text: yes — left unchecked, standby draw from
+                several devices can add a noticeable amount to a
+                household's annual electricity bill, even though each
+                individual device uses very little on its own.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-q-3">
+              Are bigger televisions always less efficient?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-q-3">
+              <p>
+                Placeholder text: not necessarily. Screen size affects
+                power draw, but panel technology and picture settings
+                also play a large role, so a well-rated large screen can
+                use less energy than an older, smaller one.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-q-4">
+              Where does this site's data come from?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-q-4">
+              <p>
+                Placeholder text: figures shown across this site are
+                illustrative values created for this assignment and are
+                not sourced from a live dataset.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>WattWise</h4>
+          <p>A student project on appliance energy consumption in the Australian market, with a focus on televisions.</p>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="televisions.html">Televisions</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Note</h4>
+          <p>Built for a university web development assignment. Content is placeholder text for demonstration purposes.</p>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>&copy; <span data-current-year></span> WattWise · [Your Name]</span>
+        <span class="genai-note">Generative AI (Claude) was used to help draft this site's code and design.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
