@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Story — TV Energy Consumption — WattWise</title>
+  <meta name="description" content="A data story exploring how screen technology, size and star ratings drive real television energy consumption, built from 4,724 Australian Energy Rating registrations." />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="WattWise power logo">
+          <circle cx="20" cy="20" r="18.5" fill="none" stroke="#FFB020" stroke-width="2"/>
+          <path d="M22 6 L10 22 H18 L16 34 L30 16 H21 Z" fill="#FFB020"/>
+        </svg>
+        <span class="brand-name">WattWise<small>AU Energy Guide</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="televisions.html">Televisions</a></li>
+        <li><a href="data-story.html" aria-current="page">Data Story</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero story-hero" style="padding-bottom:56px;">
+      <div class="container">
+        <div class="hero-copy">
+          <span class="eyebrow">Real dataset · 4,724 registered models</span>
+          <h1>Two same-size TVs can use five times more power than each other</h1>
+          <p class="lede">
+            Screen size looks like the obvious driver of a TV's running
+            cost. Across every model registered for sale in Australia,
+            the numbers say technology and star rating matter just as
+            much — sometimes more. This page walks through what the
+            full Energy Rating registration dataset actually shows.
+          </p>
+        </div>
+
+        <div class="story-stat-card">
+          <span class="story-number">5.5×</span>
+          <p class="story-caption">the gap between the most and least efficient 60–65&Prime; televisions in the dataset — 207 kWh/year at the low end, 1,135 kWh/year at the high end</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ DATASET OVERVIEW ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">01 · The dataset</span>
+          <h2>Three screen technologies, one register</h2>
+          <p>
+            Every model here was submitted for Australian Energy Rating
+            approval and is publicly registered — this reflects
+            registrations, not sales, so a popular model resubmitted for
+            several sizes appears more than once. LED-backlit LCD panels
+            dominate the current market; OLED and older non-LED LCD
+            panels make up smaller shares.
+          </p>
+        </div>
+        <div class="card">
+          <div class="panel-meta">
+            <span class="panel-title">MODELS BY SCREEN TECHNOLOGY</span>
+            <span class="panel-title" id="totalModels"></span>
+          </div>
+          <div class="chart-box short"><canvas id="chartTechCounts"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SIZE VS POWER ============================ -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">02 · Size vs. power</span>
+          <h2>Bigger screens do draw more power — but the spread is wide</h2>
+          <p>
+            Each point is one registered model: screen diagonal (cm)
+            against its measured average on-mode power draw (W). The
+            dark line traces the average power at each size — notice how
+            far individual models sit above or below it.
+          </p>
+        </div>
+        <div class="card">
+          <div class="panel-meta">
+            <span class="panel-title">SCREEN SIZE vs. AVERAGE MODE POWER</span>
+            <span class="panel-title">n = 4,724</span>
+          </div>
+          <div class="chart-box"><canvas id="chartSizePower"></canvas></div>
+          <div class="legend-row" id="legendTech"></div>
+        </div>
+        <div class="card" style="margin-top:24px;">
+          <span class="tag amber">Reading this chart</span>
+          <p style="margin:0;">
+            At almost any given size, the best and worst performers
+            differ by a factor of two or more. Size sets a ceiling on
+            power draw — it doesn't determine it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TECHNOLOGY COMPARISON ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">03 · Technology</span>
+          <h2>OLED looks efficient per inch, but not per set</h2>
+          <p>
+            Averaged across all registered sizes, OLED panels draw more
+            power and use more energy per year than LED-backlit LCDs —
+            largely because OLED is concentrated in larger, premium
+            sizes. Older non-LED LCD panels are the lowest-power group,
+            but are now a shrinking, mostly smaller-screen category.
+          </p>
+        </div>
+        <div class="chart-grid-2">
+          <div class="card">
+            <div class="panel-meta"><span class="panel-title">AVG. POWER DRAW (W)</span></div>
+            <div class="chart-box short"><canvas id="chartTechPower"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="panel-meta"><span class="panel-title">AVG. YEARLY USE (kWh)</span></div>
+            <div class="chart-box short"><canvas id="chartTechKwh"></canvas></div>
+          </div>
+        </div>
+        <p style="margin-top:20px;">
+          Averages mix screen sizes unevenly across technologies, so
+          read these alongside the size chart above rather than as
+          "OLED is worse."
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ STAR RATING ============================ -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">04 · Efficiency ratings</span>
+          <h2>The star rating is doing its job</h2>
+          <p>
+            Australia's Energy Rating label runs from 1 to 8 stars
+            (higher is better; above 6 stars is rare, reserved for the
+            most efficient sets). Plotted against actual measured yearly
+            consumption, the rating tracks real-world energy use closely
+            and consistently.
+          </p>
+        </div>
+        <div class="card">
+          <div class="panel-meta">
+            <span class="panel-title">STAR RATING vs. AVG. LABELLED CONSUMPTION</span>
+          </div>
+          <div class="chart-box"><canvas id="chartStarKwh"></canvas></div>
+        </div>
+        <div class="card" style="margin-top:24px;">
+          <span class="tag amber">Reading this chart</span>
+          <p style="margin:0;">
+            Moving from a 3-star to a 6-star model cuts average yearly
+            consumption from about 720 kWh to 290 kWh — a saving of well
+            over half, for comparable screens.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ EXPLORE ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">05 · Explore it yourself</span>
+          <h2>Filter by technology and see where a model sits</h2>
+          <p>
+            Use the dropdown to isolate a screen technology. Each point
+            plots screen size against yearly energy consumption — the
+            same measure that appears on the Energy Rating label.
+          </p>
+        </div>
+        <div class="card">
+          <div class="panel-meta">
+            <span class="panel-title">SCREEN SIZE vs. YEARLY CONSUMPTION</span>
+            <select class="filter-select" id="techFilter" aria-label="Filter by screen technology">
+              <option value="all">All technologies</option>
+              <option value="LCD (LED)">LCD (LED)</option>
+              <option value="LCD">LCD</option>
+              <option value="OLED">OLED</option>
+            </select>
+          </div>
+          <div class="chart-box"><canvas id="chartFilter"></canvas></div>
+          <div class="legend-row" id="legendFilterCount"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ LIMITATIONS ============================ -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">06 · Limitations</span>
+          <h2>What this dataset can't tell you</h2>
+        </div>
+        <ul class="limits-list">
+          <li>It covers models <strong>registered</strong> for the Australian market — not global availability, and not sales volumes, so common models aren't weighted more heavily than rare ones.</li>
+          <li>Power figures come from standardised lab tests (a fixed test video, fixed brightness settings). Real brightness, HDR content, and usage hours will shift actual consumption up or down.</li>
+          <li>Some fields (brand website, tuner type) were incomplete and excluded; the size, power, technology, rating and consumption fields used here had no missing values.</li>
+          <li>Snapshot only: this reflects registrations current as of February 2026, not the full historical record.</li>
+        </ul>
+        <p class="muted" style="font-size:0.9rem;">Charts use linear axes with true-zero baselines throughout, and every average is shown alongside its sample size so small groups aren't overstated.</p>
+      </div>
+    </section>
+
+    <!-- ============================ TAKEAWAY ============================ -->
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <span class="tag">07 · Takeaway</span>
+          <h2>Buying advice, from the data</h2>
+          <p>
+            If you're shopping for a TV: the star rating is a reliable
+            shortcut, screen size sets a rough budget for power draw,
+            and within any size and technology there's still a wide
+            efficiency gap worth checking model-by-model.
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag amber">In short</span>
+          <h3>The 5.5&times; gap isn't an outlier</h3>
+          <p style="margin:0;">
+            The gap between the best and worst 60–65&Prime; sets shown at
+            the top of this page is typical of the spread found at
+            almost every screen size in this dataset — check the label,
+            not just the size.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>WattWise</h4>
+          <p>A student project on appliance energy consumption in the Australian market, with a focus on televisions.</p>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="televisions.html">Televisions</a></li>
+            <li><a href="data-story.html">Data Story</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Data source</h4>
+          <p>Australian Government Energy Rating product registration database, television models approved as of 15 February 2026 (4,724 records).</p>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>&copy; <span data-current-year></span> WattWise · Lim Yee Kuan</span>
+        <span class="genai-note">Generative AI (Claude) was used to help draft this site's code and design.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="tv-data.js"></script>
+  <script src="data-story.js"></script>
+</body>
+</html>
