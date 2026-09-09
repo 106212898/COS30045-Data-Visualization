@@ -6,7 +6,6 @@
   <title>Data Story — TV Energy Consumption — WattWise</title>
   <meta name="description" content="A data story exploring how screen technology, size and star ratings drive real television energy consumption, built from 4,724 Australian Energy Rating registrations." />
   <link rel="stylesheet" href="assets/styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -68,11 +67,11 @@
           </p>
         </div>
         <div class="card">
-          <div class="panel-meta">
-            <span class="panel-title">MODELS BY SCREEN TECHNOLOGY</span>
-            <span class="panel-title" id="totalModels"></span>
-          </div>
-          <div class="chart-box short"><canvas id="chartTechCounts"></canvas></div>
+          <img
+            src="assets/Chart1.png"
+            alt="Bar chart of models by screen technology: LCD (LED) 3,819 models, LCD 585 models, OLED 320 models, out of 4,724 registered models total"
+            style="width:100%; height:auto; display:block; border-radius:8px;"
+          />
         </div>
       </div>
     </section>
@@ -91,12 +90,11 @@
           </p>
         </div>
         <div class="card">
-          <div class="panel-meta">
-            <span class="panel-title">SCREEN SIZE vs. AVERAGE MODE POWER</span>
-            <span class="panel-title">n = 4,724</span>
-          </div>
-          <div class="chart-box"><canvas id="chartSizePower"></canvas></div>
-          <div class="legend-row" id="legendTech"></div>
+          <img
+            src="assets/Chart4.png"
+            alt="Line chart of screen size vs average power draw, rising from 17W at 40cm to 291W at 260cm across 12 screen-size bands"
+            style="width:100%; height:auto; display:block; border-radius:8px;"
+          />
         </div>
         <div class="card" style="margin-top:24px;">
           <span class="tag amber">Reading this chart</span>
@@ -123,15 +121,12 @@
             but are now a shrinking, mostly smaller-screen category.
           </p>
         </div>
-        <div class="chart-grid-2">
-          <div class="card">
-            <div class="panel-meta"><span class="panel-title">AVG. POWER DRAW (W)</span></div>
-            <div class="chart-box short"><canvas id="chartTechPower"></canvas></div>
-          </div>
-          <div class="card">
-            <div class="panel-meta"><span class="panel-title">AVG. YEARLY USE (kWh)</span></div>
-            <div class="chart-box short"><canvas id="chartTechKwh"></canvas></div>
-          </div>
+        <div class="card">
+          <img
+            src="assets/Chart2.png"
+            alt="Two bar charts side by side: average power draw and average yearly energy use by technology. LCD 88W and 334kWh, LCD (LED) 119W and 455kWh, OLED 130W and 486kWh"
+            style="width:100%; height:auto; display:block; border-radius:8px;"
+          />
         </div>
         <p style="margin-top:20px;">
           Averages mix screen sizes unevenly across technologies, so
@@ -156,10 +151,11 @@
           </p>
         </div>
         <div class="card">
-          <div class="panel-meta">
-            <span class="panel-title">STAR RATING vs. AVG. LABELLED CONSUMPTION</span>
-          </div>
-          <div class="chart-box"><canvas id="chartStarKwh"></canvas></div>
+          <img
+            src="assets/Chart3.png"
+            alt="Bar chart of star rating vs average yearly consumption, dropping from 1,187 kWh at 1 star to 166 kWh at 8 stars"
+            style="width:100%; height:auto; display:block; border-radius:8px;"
+          />
         </div>
         <div class="card" style="margin-top:24px;">
           <span class="tag amber">Reading this chart</span>
@@ -172,39 +168,11 @@
       </div>
     </section>
 
-    <!-- ============================ EXPLORE ============================ -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="tag">05 · Explore it yourself</span>
-          <h2>Filter by technology and see where a model sits</h2>
-          <p>
-            Use the dropdown to isolate a screen technology. Each point
-            plots screen size against yearly energy consumption — the
-            same measure that appears on the Energy Rating label.
-          </p>
-        </div>
-        <div class="card">
-          <div class="panel-meta">
-            <span class="panel-title">SCREEN SIZE vs. YEARLY CONSUMPTION</span>
-            <select class="filter-select" id="techFilter" aria-label="Filter by screen technology">
-              <option value="all">All technologies</option>
-              <option value="LCD (LED)">LCD (LED)</option>
-              <option value="LCD">LCD</option>
-              <option value="OLED">OLED</option>
-            </select>
-          </div>
-          <div class="chart-box"><canvas id="chartFilter"></canvas></div>
-          <div class="legend-row" id="legendFilterCount"></div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============================ LIMITATIONS ============================ -->
     <section class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <span class="tag">06 · Limitations</span>
+          <span class="tag">05 · Limitations</span>
           <h2>What this dataset can't tell you</h2>
         </div>
         <ul class="limits-list">
@@ -221,7 +189,7 @@
     <section class="section">
       <div class="container two-col">
         <div>
-          <span class="tag">07 · Takeaway</span>
+          <span class="tag">06 · Takeaway</span>
           <h2>Buying advice, from the data</h2>
           <p>
             If you're shopping for a TV: the star rating is a reliable
@@ -247,7 +215,7 @@
     <section class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <span class="tag">08 · How this story was planned</span>
+          <span class="tag">07 · How this story was planned</span>
           <h2>The storyboard behind this page</h2>
           <p>
             Before building any charts, the narrative was planned as a
@@ -297,7 +265,5 @@
   </footer>
 
   <script src="assets/script.js"></script>
-  <script src="assets/TVData.js"></script>
-  <script src="assets/DataStory.js"></script>
 </body>
 </html>
