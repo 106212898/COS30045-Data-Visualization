@@ -34,10 +34,6 @@
         <div class="hero-copy">
           <span class="eyebrow">Illustration</span>
           <h1>House SVG</h1>
-          <p class="lede">
-            An inline SVG illustration of a house, embedded directly in
-            this page's HTML.
-          </p>
         </div>
       </div>
     </section>
@@ -45,113 +41,28 @@
     <section class="section">
       <div class="container" style="grid-template-columns:1fr; justify-items:center;">
         <div class="card" style="max-width:700px; width:100%;">
-          <svg width="100%" height="auto" viewBox="0 0 1000 800"
-               xmlns="http://www.w3.org/2000/svg">
+          <img src="assets/house.svg" alt="Illustration of a house with a garden, drawn using SVG shapes" style="width:100%; height:auto;" />
+          <h2>Original SVG</h2>
+          <p>
+            The original SVG without modifications.
+          </p>
+        </div>
+      </div>
+    </section>
 
-              <!-- Sky -->
-              <rect width="1000" height="520" fill="#9BD8E8"/>
-
-              <!-- Grass -->
-              <rect y="520" width="1000" height="280" fill="#6DBB4A"/>
-
-              <!-- Sun -->
-              <circle cx="820" cy="130" r="65" fill="#FFD84D"/>
-
-              <!-- Cloud -->
-              <g fill="white">
-                  <circle cx="150" cy="130" r="35"/>
-                  <circle cx="190" cy="115" r="45"/>
-                  <circle cx="235" cy="135" r="30"/>
-                  <rect x="150" y="130" width="85" height="35"/>
-              </g>
-
-              <!-- Bushes -->
-              <g fill="#277A3A">
-                  <circle cx="80" cy="480" r="45"/>
-                  <circle cx="130" cy="460" r="55"/>
-                  <circle cx="185" cy="485" r="45"/>
-              </g>
-
-              <!-- House -->
-              <rect x="300" y="310" width="400" height="300"
-                    fill="#F2C078"/>
-
-              <!-- Roof -->
-              <polygon points="260,310 500,130 740,310"
-                       fill="#394B70"/>
-
-              <!-- Chimney -->
-              <rect x="610" y="175" width="55" height="120"
-                    fill="#B85C45"/>
-
-              <rect x="600" y="165" width="75" height="15"
-                    fill="#8E4637"/>
-
-              <!-- Left Window -->
-              <rect x="335" y="370" width="90" height="80"
-                    fill="#B9E4ED"/>
-
-              <line x1="380" y1="370" x2="380" y2="450"
-                    stroke="white" stroke-width="8"/>
-
-              <line x1="335" y1="410" x2="425" y2="410"
-                    stroke="white" stroke-width="8"/>
-
-              <!-- Right Window -->
-              <rect x="575" y="370" width="90" height="80"
-                    fill="#B9E4ED"/>
-
-              <line x1="620" y1="370" x2="620" y2="450"
-                    stroke="white" stroke-width="8"/>
-
-              <line x1="575" y1="410" x2="665" y2="410"
-                    stroke="white" stroke-width="8"/>
-
-              <!-- Porch -->
-              <rect x="425" y="590" width="160" height="20"
-                    fill="#5B4030"/>
-
-              <!-- Porch Posts -->
-              <rect x="430" y="505" width="15" height="85"
-                    fill="#5B4030"/>
-
-              <rect x="565" y="505" width="15" height="85"
-                    fill="#5B4030"/>
-
-              <!-- Porch Roof -->
-              <polygon points="410,510 500,465 595,510"
-                       fill="#4A3428"/>
-
-              <!-- Door -->
-              <rect x="465" y="445" width="80" height="165"
-                    fill="#76523C"/>
-
-              <!-- Door Knob -->
-              <circle cx="525" cy="530" r="7"
-                      fill="#F5D76E"/>
-
-              <!-- Path -->
-              <path d="M505 610
-                       C470 660, 430 700, 400 800
-                       L600 800
-                       C575 710, 545 660, 520 610 Z"
-                    fill="#D8B07A"/>
-
-              <!-- Flowers -->
-              <g fill="#E85D75">
-                  <circle cx="230" cy="590" r="8"/>
-                  <circle cx="250" cy="575" r="8"/>
-                  <circle cx="275" cy="595" r="8"/>
-              </g>
-
-              <!-- Flower Stems -->
-              <g stroke="#397A3A" stroke-width="5">
-                  <line x1="230" y1="600" x2="230" y2="635"/>
-                  <line x1="250" y1="585" x2="250" y2="635"/>
-                  <line x1="275" y1="605" x2="275" y2="635"/>
-              </g>
-
-          </svg>
+    <section class="section section-alt" id="annotated">
+      <div class="container">
+        <div class="section-head">
+          <h2>Annotated</h2>
+          <p>
+            Every shape in the house SVG — sky, grass, sun, cloud,
+            bushes, house, roof, chimney, windows, porch, door, walkway,
+            flowers and stems — matched to its coordinates in the code
+            above.
+          </p>
+        </div>
+        <div class="card" style="max-width:900px; margin:0 auto;">
+          <img src="assets/house_annotated.png" alt="Annotated house SVG with a numbered marker on every shape, matched to its coordinates in the code, listed in a legend below" style="width:100%; height:auto; border-radius:8px;" />
         </div>
       </div>
     </section>
