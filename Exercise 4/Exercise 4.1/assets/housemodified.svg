@@ -1,0 +1,108 @@
+<svg width="1000" height="800" viewBox="0 0 1000 800"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Sky -->
+    <rect width="1000" height="520" fill="#7393B3"/>
+
+    <!-- Grass -->
+    <rect y="520" width="1000" height="280" fill="#6DBB4A"/>
+
+    <!-- Sun -->
+    <circle cx="220" cy="130" r="65" fill="#A9A9A9"/>
+    <circle cx="235" cy="105" r="20" fill="#818589"/>
+    <circle cx="200" cy="150"  r="25" fill="#818589"/>
+
+    <!-- Cloud -->
+    <g fill="white">
+        <circle cx="750" cy="130" r="35"/>
+        <circle cx="790" cy="115" r="45"/>
+        <circle cx="835" cy="135" r="30"/>
+        <rect x="750" y="130" width="85" height="35"/>
+    </g>
+
+    <!-- Bushes -->
+    <g fill="#277A3A">
+        <circle cx="80" cy="480" r="45"/>
+        <circle cx="130" cy="460" r="55"/>
+        <circle cx="185" cy="485" r="45"/>
+    </g>
+
+    <!-- House -->
+    <rect x="300" y="310" width="400" height="300"
+          fill="#F2C078"/>
+
+    <!-- Roof -->
+    <polygon points="260,310 500,130 740,310"
+             fill="#394B70"/>
+
+    <!-- Chimney -->
+    <rect x="610" y="175" width="55" height="120"
+          fill="#B85C45"/>
+
+    <rect x="600" y="165" width="75" height="15"
+          fill="#8E4637"/>
+
+      <!-- Windows -->
+      <g fill="#B9E4ED" stroke="white" stroke-width="8">
+
+      <!-- Left Window -->
+      <g transform="translate(335, 370)">
+      <rect width="90" height="80"/>
+      <line x1="45" y1="0"  x2="45" y2="80"/>
+      <line x1="0"  y1="40" x2="90" y2="40"/>
+      </g>
+
+      <!-- Right Window -->
+      <g transform="translate(575, 370)">
+      <rect width="90" height="80"/>
+      <line x1="45" y1="0"  x2="45" y2="80"/>
+      <line x1="0"  y1="40" x2="90" y2="40"/>
+      </g>
+
+      </g>
+
+    <!-- Porch -->
+    <rect x="425" y="590" width="160" height="20"
+          fill="#5B4030"/>
+
+    <!-- Porch Posts -->
+    <rect x="430" y="505" width="15" height="85"
+          fill="#5B4030"/>
+
+    <rect x="565" y="505" width="15" height="85"
+          fill="#5B4030"/>
+
+    <!-- Porch Roof -->
+    <polygon points="410,510 500,465 595,510"
+             fill="#4A3428"/>
+
+    <!-- Door -->
+    <rect x="465" y="445" width="80" height="165"
+          fill="#76523C"/>
+
+    <!-- Door Knob -->
+    <circle cx="525" cy="530" r="7"
+            fill="#F5D76E"/>
+
+    <!-- Path -->
+      <path d="M506 610
+         C464 660, 416 700, 380 800
+         L620 800
+         C590 710, 554 660, 524 610 Z"
+      fill="#D8B07A"/>
+
+    <!-- Flowers -->
+    <g fill="#E85D75">
+        <circle cx="230" cy="590" r="8"/>
+        <circle cx="250" cy="575" r="8"/>
+        <circle cx="275" cy="595" r="8"/>
+    </g>
+
+    <!-- Flower Stems -->
+    <g stroke="#397A3A" stroke-width="5">
+        <line x1="230" y1="600" x2="230" y2="635"/>
+        <line x1="250" y1="585" x2="250" y2="635"/>
+        <line x1="275" y1="605" x2="275" y2="635"/>
+    </g>
+
+</svg>
