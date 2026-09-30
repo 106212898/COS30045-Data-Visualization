@@ -213,6 +213,24 @@
         <div id="bar-chart"></div>
       </div>
     </section>
+
+    <section class="section" id="line-chart-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Line chart</h2>
+        </div>
+        <div id="line-chart"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="donut-chart-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Donut chart</h2>
+        </div>
+        <div id="donut-chart"></div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -326,6 +344,161 @@
         console.log(data);
         data.sort((a, b) => b.consumption - a.consumption);
         drawBarChart(data);
+    });
+  </script>
+
+  <script>
+
+    const drawLineChart = data => {
+      const margin = { top: 70, right: 20, bottom: 40, left: 50 };
+      const width = 1000;
+      const height = 600;
+      const innerWidth = width - margin.left - margin.right;
+      const innerHeight = height - margin.top - margin.bottom;
+
+      const svg = d3.select("#line-chart")
+        .append("svg")
+        .attr("viewBox", `0, 0, ${width}, ${height}`);
+
+      const innerChart = svg
+        .append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+      const xScale = d3.scaleLinear()
+        .domain(d3.extent(data, d => d.year))
+        .range([0, innerWidth]);
+
+      const yScale = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.average)])
+        .range([innerHeight, 0]);
+
+      const bottomAxis = d3.axisBottom(xScale)
+        .tickFormat(d3.format("d"));
+
+      const leftAxis = d3.axisLeft(yScale);
+
+      const lineGenerator = d3.line()
+        .x(d => xScale(d.year))
+        .y(d => yScale(d.average));
+
+      innerChart
+        .append("g")
+        .attr("transform", `translate(0,${innerHeight})`)
+        .call(bottomAxis);
+
+      innerChart
+        .append("g")
+        .call(leftAxis);
+
+      innerChart
+        .append("path")
+        .attr("d", lineGenerator(data))
+        .attr("fill", "none")
+        .attr("stroke", "green");
+
+      innerChart
+        .selectAll(".dot")
+        .data(data)
+        .join("circle")
+          .attr("class", "dot")
+          .attr("cx", d => xScale(d.year))
+          .attr("cy", d => yScale(d.average))
+          .attr("r", 5)
+          .attr("fill", "green");
+    };
+
+    d3.csv("assets/ARE.csv", d => {
+      return {
+        year: +d.Year,
+        qld: +d["Queensland ($ per megawatt hour)"],
+        nsw: +d["New South Wales ($ per megawatt hour)"],
+        vic: +d["Victoria ($ per megawatt hour)"],
+        sa: +d["South Australia ($ per megawatt hour)"],
+        tas: d["Tasmania ($ per megawatt hour)"] === "" ? null : +d["Tasmania ($ per megawatt hour)"],
+        snowy: +d["Snowy ($ per megawatt hour)"],
+        average: +d["Average Price (notTas-Snowy)"]
+      };
+    }).then(data => {
+        console.log(data);
+        data.sort((a, b) => a.year - b.year);   // oldest year first, left to right
+        drawLineChart(data);
+    });
+  </script>
+
+  <script>
+    const drawDonutChart = data => {
+      const width = 1000;
+      const height = 500;
+      const radius = Math.min(width, height) / 2 - 20;
+
+      const color = d3.scaleOrdinal()
+        .domain(data.map(d => d.label))
+        .range(d3.schemeSet2);
+
+      const pie = d3.pie()
+        .value(d => d.value)
+        .sort(null);
+
+      const arcGenerator = d3.arc()
+        .innerRadius(radius * 0.6)
+        .outerRadius(radius * 1);
+
+      const svg = d3.select("#donut-chart")
+        .append("svg")
+        .attr("viewBox", `0, 0, ${width}, ${height}`)
+        .style("border", "1px solid black");
+
+      const innerChart = svg
+        .append("g")
+        .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+      const total = d3.sum(data, d => d.value);
+
+      innerChart
+        .selectAll(".slice")
+        .data(pie(data))
+        .join("path")
+          .attr("class", "slice")
+          .attr("d", arcGenerator)
+          .attr("fill", d => color(d.data.label))
+          .attr("stroke", "white")
+          .attr("stroke-width", 2);
+
+      innerChart
+        .selectAll(".slice-label")
+        .data(pie(data))
+        .join("text")
+          .attr("class", "slice-label")
+          .attr("transform", d => `translate(${arcGenerator.centroid(d)})`)
+          .attr("text-anchor", "middle")
+          .attr("font-size", "16px")
+          .attr("fill", "black")
+          .text(d => `${d.data.label} (${Math.round(d.data.value / total * 100)}%)`);
+
+      innerChart
+        .append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", -5)
+        .attr("font-size", "32px")
+        .attr("font-weight", "700")
+        .text(total);
+
+      innerChart
+        .append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", 25)
+        .attr("font-size", "16px")
+        .text("total TVs");
+    };
+
+    d3.csv("assets/Data2.csv", d => {
+      return {
+        label: d.Screensize_Category,
+        value: +d.Count
+      };
+    }).then(data => {
+      console.log(data);
+      drawDonutChart(data);
     });
   </script>
 </body>
