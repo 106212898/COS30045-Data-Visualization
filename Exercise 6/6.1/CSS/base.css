@@ -1,0 +1,94 @@
+/* base reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #f5f5f5;
+}
+
+/* header */
+header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+/* main content */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+main h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+main p {
+  margin-bottom: 1.5rem;
+}
+
+/* chart container */
+#histogram {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+/* footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #555;
+}
+
+/* rows that hold the buttons */
+#filters_screen,
+#filters_size {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;                 /* space between buttons */
+  margin-bottom: 0.8rem;
+}
+
+/* space between the last button row and the chart */
+#filters_size {
+  margin-bottom: 1.5rem;
+}
+
+/* every button */
+.filter {
+  font-family: inherit;        /* buttons ignore the page font by default */
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  color: #2e7d32;
+  background-color: white;
+  border: 2px solid #2e7d32;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.filter:hover {
+  background-color: #e8f5e9;
+}
+
+/* the selected button */
+.filter.active {
+  color: white;
+  background-color: #2e7d32;
+  box-shadow: 0 2px 6px rgba(46, 125, 50, 0.4);
+}
+
+.filter:focus-visible {
+  outline: 3px solid #a5d6a7;
+  outline-offset: 2px;
+}
