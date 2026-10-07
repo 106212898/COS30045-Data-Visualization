@@ -24,6 +24,15 @@ const drawScatterPlot = (data) => {
         .domain(data.map(d => d.screenTech))
         .range(d3.schemeCategory10);
 
+    const tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("background", "white")
+        .style("border", "1px solid black")
+        .style("padding", "5px")
+        .style("pointer-events", "none")
+        .style("opacity", 0);
+
     innerChartS
         .selectAll("circle")
         .data(data)
@@ -32,7 +41,20 @@ const drawScatterPlot = (data) => {
             .attr("cx", d => xScaleS(d.star))
             .attr("cy", d => yScaleS(d.energyConsumption))
             .attr("fill", d => colorScale(d.screenTech))
-            .attr("opacity", 0.5);
+            .attr("opacity", 0.5)
+            .on("mouseover", (event, d) => {
+                tooltip
+                    .style("opacity", 1)
+                    .html(`Screen: ${d.screenTech}<br>Star: ${d.star}<br>Energy: ${d.energyConsumption} kWh/year`);
+            })
+            .on("mousemove", event => {
+                tooltip
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 20) + "px");
+            })
+            .on("mouseout", () => {
+                tooltip.style("opacity", 0);
+            });
 
     const axisColor = "#5c4033";
 
